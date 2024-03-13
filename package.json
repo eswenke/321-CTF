@@ -1,0 +1,17 @@
+{
+  "name": "321-ctf",
+  "version": "1.0.0",
+  "description": "Mastery Extension for CSC-321",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ethan Swenke",
+  "license": "ISC",
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "create-react-app": "^5.0.1"
+  }
+}

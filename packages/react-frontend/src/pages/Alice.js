@@ -56,7 +56,7 @@ function Alice() {
         justifyContent="center"
         paddingY={10}
       >
-        <Text style={{ fontSize: `25px` }}>g = 3</Text>
+        <Text style={{ fontSize: `25px` }}>q = 17</Text>
       </Pane>
       <Pane
         display="flex"

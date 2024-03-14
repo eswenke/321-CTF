@@ -2,20 +2,9 @@ import { Pane, Heading, Button } from "evergreen-ui";
 import { useState } from "react";
 import React from "react";
 import Header from "../components/Header.js";
+import Ctfpcap from "../ctf.pcapng";
 
 function Level2() {
-  const handleDownload = () => {
-    const fileContent = "This is the content of the downloadable file.";
-    const blob = new Blob([fileContent], { type: "text/plain" });
-    const url = window.URL.createObjectURL(blob);
-    const anchor = document.createElement("a");
-
-    anchor.href = url;
-    anchor.download = "downloadable_file.txt"; //
-    anchor.click();
-    window.URL.revokeObjectURL(url);
-  };
-
   return (
     <Pane>
       <Header />
@@ -25,7 +14,9 @@ function Level2() {
         justifyContent="center"
         paddingY={30}
       >
-        <Heading fontSize={32}>Level 2: Wireshark</Heading>
+        <Heading fontSize={32}>
+          Level 2: Wireshark (Internet Control Message Protocol)
+        </Heading>
       </Pane>
       <Pane
         display="flex"
@@ -33,7 +24,9 @@ function Level2() {
         justifyContent="center"
         paddingY={10}
       >
-        <Button onClick={handleDownload}>Download File</Button>
+        <a href={Ctfpcap} download="pcap-file" target="_blank" rel="noreferrer">
+          <Button>Download File</Button>
+        </a>
       </Pane>
     </Pane>
   );

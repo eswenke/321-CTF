@@ -10,9 +10,9 @@ mongoose
   })
   .catch((error) => console.log(error));
 
-  function getNumber() {
-    return privNumberModel.findOne();
-  }
+function getNumber(name) {
+  return privNumberModel.find({ name: name });
+}
 
 export default {
   getNumber,

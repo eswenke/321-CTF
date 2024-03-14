@@ -10,8 +10,8 @@ mongoose
   })
   .catch((error) => console.log(error));
 
-  function getNumber() {
-    return pubNumberModel.findOne();
+  function getNumber(name) {
+    return pubNumberModel.find({ name: name });
   }
 
 export default {

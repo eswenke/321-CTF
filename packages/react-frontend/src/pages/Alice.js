@@ -1,5 +1,4 @@
 import { Pane, Heading, Text, Button } from "evergreen-ui";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import React from "react";
 import Header from "../components/Header.js";
@@ -9,7 +8,8 @@ function Alice() {
   const [isResult, setIsResult] = useState(false);
 
   function getResult(result) {
-    const promise = fetch(`http://localhost:8000/${result}`, {
+    console.log(result);
+    const promise = fetch(`http://localhost:8000/${result}/alice`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -22,17 +22,17 @@ function Alice() {
   function handleResult(result) {
     getResult(result)
       .then((res) => {
-        if (res.status === 204) {
+        if (res.status === 200) {
+          setResu(res.body.number);
+          setIsResult(true);
           return res.json();
         } else {
           console.log("Error: " + res.status + " No object found.");
         }
       })
       .then((json) => {
-        if (json) {
-          setResu(json);
-          setIsResult(true);
-        }
+        setResu(json[0].number);
+        setIsResult(true);
       })
       .catch((error) => {
         console.log(error);
@@ -64,12 +64,14 @@ function Alice() {
         justifyContent="center"
         paddingY={10}
       >
-        <Button marginTop={20} onClick={handleResult}>
+        <Button marginTop={0} onClick={() => handleResult("public_number")}>
           Get Public Number
         </Button>
         {isResult && (
           <Pane>
-            <Text padding={10}>{resu}</Text>
+            <Text style={{ fontSize: `25px` }} padding={10}>
+              {resu}
+            </Text>
           </Pane>
         )}
       </Pane>

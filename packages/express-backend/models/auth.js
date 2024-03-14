@@ -8,7 +8,7 @@ const AuthSchema = new mongoose.Schema(
       trim: true,
     },
   },
-  { collection: "auth" }
+  { collection: "auth_list" }
 );
 
 const Auth = mongoose.model("Auth", AuthSchema);

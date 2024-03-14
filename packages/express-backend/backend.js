@@ -37,7 +37,7 @@ app.get("/private_number/:name", async (req, res) => {
   }
 });
 
-app.get("/auth/:flag", async (req, res) => {
+app.get("/auth_list/:flag", async (req, res) => {
     const flag = req.params["flag"];
     try {
       const result = await authServices.getLevel(flag);

@@ -23,8 +23,6 @@ function Alice() {
     getResult(result)
       .then((res) => {
         if (res.status === 200) {
-          setResu(res.body.number);
-          setIsResult(true);
           return res.json();
         } else {
           console.log("Error: " + res.status + " No object found.");

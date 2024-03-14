@@ -1,17 +1,59 @@
 import { Pane } from "evergreen-ui";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import Header from "../components/Header.js";
 
 function Home() {
-  const [value, setValue] = useState("");
-  const [headerValue, setheaderValue] = useState("");   
+  const [characters, setCharacters] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setheaderValue(value);
   };
+
+  useEffect(() => {
+    fetchUsers()
+      .then((res) => res.json())
+      .then((json) => setCharacters(json["users_list"]))
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  function fetchUsers() {
+    const promise = fetch("http://localhost:8000/users");
+    return promise;
+  }
+
+  function postUser(person) {
+    const promise = fetch("http://localhost:8000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(person),
+    });
+
+    return promise;
+  }
+
+  function deleteUser(id) {
+    const promise = fetch(
+      `http://localhost:8000/users/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+    return promise;
+  }
+
+  function updateList(person) {
+    postUser(person)
+      .then(() => setCharacters([...characters, person]))
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   return (
     <Pane>

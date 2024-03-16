@@ -11,7 +11,6 @@ function Level1() {
   const [flagText, setFlagText] = useState("");
 
   function getFlag(flag) {
-    console.log(flag);
     const promise = fetch(`http://localhost:8000/auth_list/${flag}`, {
       method: "GET",
       headers: {

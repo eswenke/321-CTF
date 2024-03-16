@@ -9,3 +9,12 @@ const root = ReactDOMClient.createRoot(container);
 
 // Initial render:
 root.render(<MyApp />);
+
+/* 
+
+Oh look, sourcecode! Very secure!
+Read the flag carefully...
+
+flag={you%3Dare-el%3Bdcode%21}
+
+*/

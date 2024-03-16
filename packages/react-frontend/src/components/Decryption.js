@@ -10,11 +10,6 @@ const Decryption = () => {
   const msg = "flag={d1FFIeh3lLmAn}";
   const enc_flag = encryptMessage(msg);
 
-  // once db is setup, through the flag at an endpoint so its not in sourcecode, then fetch at start
-  // using useEffect
-  // alice priv key = 15, pub key = 6
-  // bob priv key = 13, pub key = 12
-
   const handleDecrypt = () => {
     const decrypted = decryptMessage(enc_flag, s);
     setDecryptedMsg(decrypted);
@@ -72,7 +67,7 @@ const Decryption = () => {
   return (
     <Pane>
       <Pane display="flex" alignItems="center" justifyContent="center">
-        <Text marginRight={8}>Enter value of s:</Text>
+        <Text marginRight={8}>Enter value of shared secret:</Text>
         <TextInputField marginTop={15} onChange={(e) => setS(e.target.value)} />
       </Pane>
       <Pane display="flex" alignItems="center" justifyContent="center">

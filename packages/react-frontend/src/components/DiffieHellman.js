@@ -16,7 +16,7 @@ function DiffieHellman() {
     );
   };
 
-    const calculateResult = () => {
+  const calculateResult = () => {
     if (!g || !x || !q) {
       alert("Please enter all three numbers.");
       return;
@@ -28,9 +28,16 @@ function DiffieHellman() {
     setResult(calculatedResult);
   };
 
-
   return (
     <Pane>
+      <Pane
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        paddingY={10}
+      >
+        just a calculator for convenience - values are hardcoded
+      </Pane>
       <TextInput
         value={g}
         onChange={(e) => setG(e.target.value)}

@@ -5,7 +5,6 @@ import React from "react";
 import Header from "../components/Header.js";
 
 function Home() {
-
   return (
     <Pane>
       <Header />
@@ -17,7 +16,7 @@ function Home() {
         }}
       >
         <div style={{ margin: "20px" }}>
-          <ul style={{ listStyleType: "none", padding: 0 }}>
+          <ul style={{ listStyleType: "none" }}>
             <li>
               <Link to="/level1">Level 1</Link>
             </li>

@@ -9,7 +9,6 @@ function Level2() {
   const [flagText, setFlagText] = useState("");
 
   function getFlag(flag) {
-    console.log(flag);
     const promise = fetch(`http://localhost:8000/auth_list/${flag}`, {
       method: "GET",
       headers: {
@@ -44,7 +43,7 @@ function Level2() {
   const handleChange = (event) => {
     setFlagText(event.target.value); // Update flagText state as the user types
   };
-  
+
   return (
     <Pane>
       <Header />
